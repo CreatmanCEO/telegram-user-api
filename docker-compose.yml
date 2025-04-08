@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  telegram-api-server:
+    image: telegrammtproto/telegram-api-server:latest
+    container_name: telegram-api-server
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9503:9503"
+    volumes:
+      - ./telegram-data:/data
+    environment:
+      - API_ID=${API_ID}
+      - API_HASH=${API_HASH}
